@@ -1,0 +1,33 @@
+部队自带技能列表
+部队基本信息
+军团部队列表  [0, 5, 4] 代表近步，弓骑，步弓
+
+
+unit.json
+    melee infantry       type 0
+    defense infantry     type 1
+    melee cavalry        type 2
+    charging cavalry     type 3
+    ranged infantry      type 4
+    ranged cavalry       type 5
+
+skill.json
+    0/1 legion effect
+    
+    "Single-handed Sword 2": 单手剑2 对远程步兵伤害 +20%
+    "Halberd 2": 长戟2 对冲锋骑兵伤害 +20% 降低敌人35%冲锋率
+    "Knight Sword 2": 骑士剑2 对远程骑兵伤害 +20%
+    "Knight Spear 2": 对近步伤害 +25%
+    "Archery 2": 弓箭2 对防步，近骑伤害 +15%
+
+    "Concentration": 集中 受到远程伤害 -15%
+    "Top shield": 顶盾 受到远程伤害 -20%
+    "Square": 方阵 受到骑兵伤害 -15%
+    "Deterrence": 威慑 受到近程步兵伤害 -15%
+    "Trample": 践踏 无视敌方5%防御
+
+    "Charge": 屁用没有，反击进攻中基础兵不可能触发
+    "Shoot": 射击 优先群攻
+
+tasks.json
+    考虑基础兵的所有组合，共6 + 15 × 2 + 20 = 56种组合
