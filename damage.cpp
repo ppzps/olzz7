@@ -37,7 +37,7 @@ double melee_calc_single(const Unit& A, const Unit& D){
     // 考虑技能和隐藏血量的影响
     double alpha = D.blood;
     if (A.full_skills.count("Single-handed Sword 2") > 0 && D.type == 4) alpha *= 1.2;
-    if (A.full_skills.count("Halberd 2") > 0 && D.type == 3) alpha *= 1.2;
+    if (A.full_skills.count("Halberd 2") > 0 && D.type == 3) alpha *= 1.25;
     if (A.full_skills.count("Knight Sword 2") > 0 && D.type == 5) alpha *= 1.2;
     if (A.full_skills.count("Knight Spear 2") > 0 && D.type == 0) alpha *= 1.25;
 

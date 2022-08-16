@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Hengdao Battalion",
+        "type": 0,
+        "ranged": 0, 
+        "level": 15,
+        "troops": 750,
+        "blood": 1,
+        "attack1": 215, 
+        "attack2": 253,
+        "defence": 253,
+        "charge": 15,
+        "detour": 35,
+        "counter": 0,
+        "dodge": 0,
+        "mobility": 9,
+        "skills": ["Hengdao 3", "Chase", "Climb", "Dragon Shield"]
+    }
+    
+
+]
