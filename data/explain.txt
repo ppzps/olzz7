@@ -1,15 +1,15 @@
 部队自带技能列表
 部队基本信息
-军团部队列表  [0, 5, 4] 代表近步，弓骑，步弓
+军团部队列表  [0, 5, 4] 代表三编军团，分别为近步，弓骑，步弓
 
 
 unit.json
-    melee infantry       type 0
-    defense infantry     type 1
-    melee cavalry        type 2
-    charging cavalry     type 3
-    ranged infantry      type 4
-    ranged cavalry       type 5
+    melee infantry       type 0  近步
+    defense infantry     type 1  防步
+    melee cavalry        type 2  近骑
+    charging cavalry     type 3  冲骑
+    ranged infantry      type 4  步弓
+    ranged cavalry       type 5  弓骑
 
 skill.json
     0/1 legion effect
