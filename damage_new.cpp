@@ -66,13 +66,34 @@ double melee_calc_single(const Unit& A, const Unit& D){
     if (D.full_skills.count("Deterrence") > 0 && A.type == 0) alpha *= 0.85;
 
     // 考虑将领对系数的影响
-    ;
+    if (A.pgeneral){
+        // 军团增伤
+        if (A.plegion->is_unique_unit()) alpha *= A.pgeneral->legion_dmg_inc1;
+        else alpha *= A.pgeneral->legion_dmg_inc2;
+        // 兵种大师增伤
+        if (A.type == 0 || A.type == 1) alpha *= A.pgeneral->infantry_tactician;
+        if (A.type == 2 || A.type == 3) alpha *= A.pgeneral->cavalry_tactician;
+        if (A.type == 4 || A.type == 5) alpha *= A.pgeneral->ranged_tactician;
+        // 兵种专家增伤
+        if (A.type == 0) alpha *= A.pgeneral->melee_infantry_expert;
+        if (A.type == 2) alpha *= A.pgeneral->melee_cavalry_expert;
+        // 武器增伤
+        if (A.judge_weapon() == swordman) alpha *= A.pgeneral->swordman_master;
+        else if (A.judge_weapon() == assualt) alpha *= A.pgeneral->assault_master;
+        else if (A.judge_weapon() == polearm) alpha *= A.pgeneral->polearm_master;
+        else cout << "weird melee weapon" << endl;
+        
+    }
+    if (D.pgeneral){
+        alpha *= D.pgeneral->legion_dmg_red;
+        if (D.type == 1) alpha *= D.pgeneral->defence_infantry_expert;
+    }
 
     return dmg * alpha;
 }
 
 // 单纯计算攻击伤害 A->D 且A为远程 
-// 不考虑冲锋，迂回，闪避，多段反击等因素，就是单纯的计算伤害
+// 不考虑冲锋，迂回，闪避，多段反击等因素，但是考虑了将领
 double ranged_calc_single(const Unit& A, const Unit& D, int fleet){
     assert(A.is_ranged);
     // 先计算基础伤害
@@ -118,14 +139,29 @@ double ranged_calc_single(const Unit& A, const Unit& D, int fleet){
     if (D.full_skills.count("Top shield") > 0) {alpha *= 0.8;}       // 顶盾
     if (D.full_skills.count("Dragon Shield") > 0) {alpha *= 0.8;}    // 龙盾
     if (D.full_skills.count("Massive Shield") > 0) {alpha *= 0.5;}   // 巨盾
-
     // 连击
     if (A.full_skills.count("Combo") > 0){
         if (judge_prob(20)) alpha *= 2.0; // 连击
     }
-
     if (A.full_skills.count("Banner") > 0) alpha *= 1.05;
     if (D.full_skills.count("Fearless") > 0) alpha *= 0.95;
+
+    // 考虑将领对系数的影响
+    if (A.pgeneral){
+        // 军团增伤
+        if (A.plegion->is_unique_unit()) alpha *= A.pgeneral->legion_dmg_inc1;
+        else alpha *= A.pgeneral->legion_dmg_inc2;
+        // 兵种大师增伤
+        if (A.type == 4 || A.type == 5) alpha *= A.pgeneral->ranged_tactician;
+        // 武器增伤
+        if (A.judge_weapon() == shooter) alpha *= A.pgeneral->shooter_master;
+        else if (A.judge_weapon() == skirmisher) alpha *= A.pgeneral->skirmisher_master;
+        else cout << "weird melee weapon" << endl;
+        
+    }
+    if (D.pgeneral){ 
+        alpha *= D.pgeneral->legion_dmg_red;
+    }
 
     return dmg * alpha;
 }
@@ -142,6 +178,10 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
         cout << "empty legion!" << endl;
         return;
     }
+
+    // 记录本次攻击是否发生迂回或冲锋
+    A.is_charge = false;
+    A.is_detour = false;
     
     //---------------------
     // step0  行动力相关
@@ -152,10 +192,8 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     if (A.legion_skills.count("Repeated Fire") > 0 && A.current_mobility > 0){   // 技能速射
         A.current_mobility++;
     }
-    A.is_charge = false;
-    A.is_detour = false;
+    
     double mob_alpha = 1.0;
-
     if (A.legion_skills.count("Charge") > 0 && A.current_mobility > 5) mob_alpha *= 1.1;  // 冲击技能
     if (A.legion_skills.count("Guardians") > 0){    // 守护者技能
         if (A.current_mobility <= 2) mob_alpha *= 1.2;
@@ -230,41 +268,57 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
 
     if (D.unit_num == 0){
         cout << D.legion_name << " is completely annihilated!" << endl;
-        return;
+        // 结算A部队剩余情况
+        remove_num = 0;
+        temp_record = A.unit_num;
+        for (int i = 0; i < temp_record; ++i){
+            if (A.units.at(i-remove_num).current_troops == 0){
+                A.remove_unit(i - remove_num, skill_list);
+                remove_num++;
+            }
+        }
     }
 
     // step3-2 近战攻击记录表
-    vector<vector<double>> melee_rec_ad(A.unit_num, vector<double>(D.unit_num, -2.0));  // 近战攻击记录表
-    for (int i = 0; i < A.unit_num; ++i){
-        if (A.units.at(i).is_ranged) continue; // 远程，跳过计算
-        for (int j = 0; j < D.unit_num; ++j){
-            double dmg = melee_calc_single(A.units.at(i), D.units.at(j)) * mob_alpha;
-            melee_rec_ad[i][j] = dmg;
-        }
-    }
+    // 更新后没有意义
 
-    // step3-3 划分进攻方向  只需考虑迂回
+    // step3-3 划分进攻方向  只需考虑迂回，额外注意敌方是一编的情况下不会触发迂回 
+    // important!!! 进攻方前后排单位随防守方死亡而发生变化
     vector<int> front_ids;  // 前排攻击部队序号
     vector<int> back_ids;   // 后排攻击部队序号
-    vector<int> attack_is_front(3, 0);  // 1表示是前排， 0表示是后排, -1表示远程
-    for (int i = 0; i < A.unit_num; ++i){
-        if (A.units.at(i).is_ranged) {
-            attack_is_front[i] = -1;
-            continue;  // 远程跳过
-        }
-        double detour_add = 0;
-        if (A.units.at(i).full_skills.count("Thousand miles raid") > 0){  // 千里奔袭
-            detour_add = 10;
-        }
-        if (judge_prob(A.units.at(i).detour + detour_add)){  // 迂回
-            back_ids.push_back(i);
-            A.is_detour = true;
-        }
-        else{   // 不迂回
+    vector<int> attack_is_front(A.unit_num, 0);  // 1表示是前排， 0表示是后排, -1表示远程
+    // 防守方一编
+    if (D.unit_num == 1){
+        for (int i = 0; i < A.unit_num; ++i){
+            if (A.units.at(i).is_ranged){
+                attack_is_front[i] = -1;
+                continue;
+            }
             front_ids.push_back(i);
         }
     }
-    // 添加前排单位
+    // 防守方多编
+    else{
+        for (int i = 0; i < A.unit_num; ++i){
+            if (A.units.at(i).is_ranged){   // 远程跳过 
+                attack_is_front[i] = -1;
+                continue;
+            }
+            double detour_add = 0;
+            if (A.units.at(i).full_skills.count("Thousand miles raid") > 0){  // 千里奔袭
+                detour_add = 10;
+            }
+            if (judge_prob(A.units.at(i).detour + detour_add)){  // 迂回
+                back_ids.push_back(i);
+                A.is_detour = true;
+            }
+            else{   // 不迂回
+                front_ids.push_back(i);
+            }
+        }
+    }
+
+    // 确定进攻方前后排单位
     if (front_ids.size() > 0){
         attack_is_front.at(front_ids[0]) = 1;
     }
@@ -273,7 +327,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     }
 
 
-    // step3-4 近战单位按顺序进行攻防  符合一个比较复杂的表格
+    // step3-4 近战单位按顺序进行攻防  符合一个比较复杂的表格，且每当防守方死亡，则更新进攻方前后排
     // 先重置防守方的反击次数
     for (int j = 0; j < D.unit_num; ++j) D.units.at(j).counter_num = 0;
     // 开始近战攻防循环
@@ -297,19 +351,21 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
         if (is_charge = true) A.is_charge = true;   
 
         // step3-4-3 结算反击方受到伤害
-        vector<int> dmg_flag(D.unit_num, 0);   // 记录是否受到伤害
         double alpha = 1.0;
-        if (find(front_ids.begin(), front_ids.end(), i) == front_ids.end()) alpha *= 1.2; // 千里奔袭
-
-        D.units.at(counter_id).injured(melee_rec_ad[i][counter_id] * alpha);
+        if (find(front_ids.begin(), front_ids.end(), i) == front_ids.end()){
+            if (A.units.at(i).full_skills.count("Thousand miles raid") > 0) alpha *= 1.2;  // 千里奔袭
+        }
+        
         if (is_charge){
-            dmg_flag[counter_id] = 1;
+            double dmg;
             for (int j = 0; j < D.unit_num; ++j){
-                if (dmg_flag[j] == 0){
-                    D.units.at(j).injured(melee_rec_ad[i][j]);
-                    dmg_flag[j] = 1;
-                }
+                dmg = melee_calc_single(A.units.at(i), D.units.at(j)) * mob_alpha * alpha;
+                D.units.at(j).injured(dmg);
             }
+        }
+        else{
+            double dmg = melee_calc_single(A.units.at(i), D.units.at(counter_id)) * mob_alpha * alpha;
+            D.units.at(counter_id).injured(dmg);
         }
 
         
@@ -320,8 +376,8 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
             for (int j = 0; j < D.unit_num; ++j){
                 if (D.units.at(j).current_troops == 0 || D.units.at(j).is_ranged) continue;
                 // 近战反击，和下面的近战反击一样
+                // 先计算反击伤害
                 double dmg = melee_calc_single(D.units.at(counter_id), A.units.at(i));
-                dmg *= defence_counter_alpha;
                 // 和反击相关的伤害系数
                 if (D.units.at(counter_id).full_skills.count("Bloodlust") > 0){ // 考虑嗜血技能
                     if (D.units.at(counter_id).current_troops < 0.5 * D.units.at(counter_id).troops){
@@ -337,6 +393,8 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
 
                 // 防步，需要考虑多段反击
                 if (D.units.at(counter_id).type == 1){
+                    // 防步额外反击系数
+                    dmg *= defence_counter_alpha;
                     // 攻击方是否为后排单位
                     if (attack_is_front[i] == 1){  // 前排
                         A.units.at(i).injured(dmg);
@@ -355,12 +413,12 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
                 else{
                     // 攻击方是否为后排单位
                     if (attack_is_front[i] == 1 && D.units.at(counter_id).counter_num == 0){  // 前排
-                        double dmg = melee_calc_single(D.units.at(counter_id), A.units.at(i));
                         A.units.at(i).injured(dmg);
                         D.units.at(counter_id).counter_num++;
                     }  
-                // 后排不会被反击
+                    // 后排不会被反击
                 }
+            
             }
         }
         // 一般情况，无陌刀营  else
@@ -369,7 +427,6 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
         else{   // 近战反击
             // 先计算反击伤害
             double dmg = melee_calc_single(D.units.at(counter_id), A.units.at(i));
-            dmg *= defence_counter_alpha;
             // 和反击相关的伤害系数
             if (D.units.at(counter_id).full_skills.count("Bloodlust") > 0){ // 考虑嗜血技能
                 if (D.units.at(counter_id).current_troops < 0.5 * D.units.at(counter_id).troops){
@@ -385,6 +442,8 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
 
             // 防步，需要考虑多段反击
             if (D.units.at(counter_id).type == 1){
+                // 防步额外反击系数
+                dmg *= defence_counter_alpha;
                 // 攻击方是否为后排单位
                 if (attack_is_front[i] == 1){  // 前排
                     A.units.at(i).injured(dmg);
@@ -403,7 +462,6 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
             else{
                 // 攻击方是否为后排单位
                 if (attack_is_front[i] == 1 && D.units.at(counter_id).counter_num == 0){  // 前排
-                    double dmg = melee_calc_single(D.units.at(counter_id), A.units.at(i));
                     A.units.at(i).injured(dmg);
                     D.units.at(counter_id).counter_num++;
                 }  
@@ -413,7 +471,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
         }
 
 
-        // step3-4-4 判断防守方单位是否存在，
+        // step3-4-4 判断防守方单位是否发生死亡
         remove_num = 0;
         temp_record = D.unit_num;
         for (int j = 0; j < temp_record; ++j){
@@ -423,10 +481,31 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
             }
         }
 
-        if (D.unit_num == 0){
+        // step3-4-5 关于发生死亡的情况的处理
+        if (D.unit_num == 0){ // 全灭
             cout << D.legion_name << " is completely annihilated!" << endl;
-            return;
+            break;
         }
+        if (remove_num > 0){  // 有死亡但是没全灭
+            // 需要更改front_ids back_ids
+            for (int k = 0; k < front_ids.size(); ++k){
+                if (front_ids[k] <= i){
+                    front_ids.erase(front_ids.begin() + k);
+                    --k;
+                }
+            }
+            for (int k = 0; k < back_ids.size(); ++k){
+                if (back_ids[k] <= i){
+                    back_ids.erase(back_ids.begin() + k);
+                    --k;
+                }
+            }
+            // 更新前后排
+            if (front_ids.size() > 0) attack_is_front.at(front_ids[0]) = 1;
+            if (back_ids.size() > 0) attack_is_front.at(back_ids[0]) = 1;
+
+        }
+
     }
 
     // step3-5 最后判断进攻方的部队损耗

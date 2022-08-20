@@ -21,6 +21,11 @@ inline double convert_troops(double h){
 inline double convert_defence(double f, double a){
     return  75 / (75 + f * (1 - a / 100));
 }
+// 多个无视防御的叠加，还未经过测试
+inline double convert_defence(double f, double a, double b){
+    return  75 / (75 + f * (1 - a / 100) * (1 - b / 100));
+}
+
 
 // 均匀分布随机数
 double uniform_rand(double lower, double upper);

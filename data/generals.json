@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Richard I",
+        "infantry_abi": 42,
+        "cavalry_abi": 126,
+        "ranged_abi": 40,
+
+        "has_unique": 1,
+        "unit_name": "Knights Templar",
+
+        "legion_dmg_inc1": 1.8515,
+        "legion_dmg_inc2": 1.6215,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1.15,
+        "polearm_master": 1.15
+    },
+    {
+        "name": "Charlemagne",
+        "infantry_abi": 50,
+        "cavalry_abi": 113,
+        "ranged_abi": 32,
+
+        "has_unique": 1,
+        "unit_name": "Knights Hospitaller",
+
+        "legion_dmg_inc1": 1.38,
+        "legion_dmg_inc2": 1.15,
+        "legion_dmg_red": 0.504,
+
+        "melee_cavalry_expert": 1.1,
+        "melee_infantry_expert": 1.15
+    },
+    {
+        "name": "Timur",
+        "infantry_abi": 25,
+        "cavalry_abi": 37,
+        "ranged_abi": 160,
+
+        "has_unique": 1,
+        "unit_name": "Imperial how cavalry",
+
+        "legion_dmg_inc1": 1.633,
+        "legion_dmg_inc2": 1.403,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1.1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    }
+]
