@@ -1,1 +1,0 @@
-/usr/bin/c++ --std=c++11 -g CMakeFiles/attack.dir/attack.cpp.o CMakeFiles/attack.dir/damage.cpp.o CMakeFiles/attack.dir/unit.cpp.o -o attack 
