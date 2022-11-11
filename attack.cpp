@@ -13,17 +13,18 @@
 using namespace std;
 using njson = nlohmann::json;
 
-const int FLEET_NUM = 27;    // unit2.json 目前收录的部队数据
+const int FLEET_NUM = 48;    // unit2.json 目前收录的部队数据
 
-// 通过剩余血量计算得分，A存活为正分, B存活为负分
-double calc_score(const Legion& A, const Legion& B){
+// 通过剩余血量计算得分，A存活为正分, B存活为负分  punish 为是否进行掉编惩罚
+double calc_score(const Legion& A, const Legion& B, bool punish = false){
     double is_positive;
     const Legion *p = nullptr;
-    if (A.unit_num == 0) {
+    if (A.unit_num == 0 && B.unit_num == 0) return 0;
+    else if (A.unit_num == 0 && B.unit_num > 0) {
         is_positive = -1.0;
         p = &B;
     }
-    else if (B.unit_num == 0){
+    else if (A.unit_num > 0 && B.unit_num == 0){
         is_positive = 1.0;
         p = &A;
     } 
@@ -39,7 +40,9 @@ double calc_score(const Legion& A, const Legion& B){
         abs_score += remain * three;
     }
 
-    abs_score -= 5 * (3 - p->unit_num);  // 掉编的额外惩罚
+    if (punish){
+        abs_score -= 5 * (3 - p->unit_num);  // 掉编的额外惩罚
+    }
     if (abs_score < 0) abs_score = 0;
 
     return is_positive * abs_score;
@@ -66,15 +69,21 @@ int convert_gen_name(std::string name, General* general_data, int len){
 }
 
 // A 先攻击， 根据行动力进行攻击
-double attack(Legion& A, Legion& B, const std::map<std::string, bool> &skill_list){
-    cout << "start..." << endl;
+// 考虑了固定伤害技能，考虑了长弓的buff
+// first 和 fix_dmg 用来表示固伤主动技能，默认值是无主动
+double attack(Legion& A, Legion& B, const std::map<std::string, bool> &skill_list, int first = 0, double fix_dmg = 0, bool verbose = true){
+    if (verbose){
+        cout << "start..." << endl;
+    }
     A.current_mobility = A.mobility;  // for debug
     B.current_mobility = B.mobility;  // for debug
-    A.show_troops();
-    B.show_troops();
-    cout << "fight!" << endl;
+    if (verbose){
+        A.show_troops();
+        B.show_troops();
+        cout << "fight!" << endl;
+    }  
 
-    int round_max = 20; // 回合数，这里两个回合等于游戏里的一个回合
+    int round_max = 40; // 回合数，这里两个回合等于游戏里的一个回合
     bool is_end = false;
     for (int i = 0; i < round_max; ++i){
         Legion *pa = 0;
@@ -88,14 +97,30 @@ double attack(Legion& A, Legion& B, const std::map<std::string, bool> &skill_lis
             pd = &A;
         }
 
-        bool trigger_black_armor = false;
-        bool trigger_art_of_war = false;
+        bool trigger_black_armor = false;  // 近玄的效果
+        bool trigger_art_of_war = false;   // 唐冲的效果
 
         pa->current_mobility = pa->mobility;
+
+        // 额外考虑固定伤害
+        if (i%2 == first && fix_dmg >= 1){
+            for (int k = 0; k < pd->unit_num; ++k){
+                pd->units.at(k).injured(fix_dmg);
+            }
+            int remove_num = 0;
+            int temp_record = pd->unit_num;
+            for (int k = 0; k < temp_record; ++k){
+                if (pd->units.at(k-remove_num).current_troops == 0){
+                    pd->remove_unit(k - remove_num, skill_list);
+                    remove_num++;
+                }
+            }
+        }
+
         // 考虑技能整编
         if (pa->legion_skills.count("Integration of the army") && pa->unit_num == 3) pa->current_mobility++;
         while(pa->current_mobility > 0){
-            legion_fight(*pa, *pd, skill_list);
+            legion_fight(*pa, *pd, skill_list, verbose);
             // 考虑技能玄甲和兵法
             if (pa->legion_skills.count("Black Armor") && pa->is_detour && !trigger_black_armor) {
                 pa->current_mobility += 2;
@@ -107,8 +132,10 @@ double attack(Legion& A, Legion& B, const std::map<std::string, bool> &skill_lis
             }
 
             // output
-            pa->show_troops();
-            pd->show_troops();
+            if(verbose){
+                pa->show_troops();
+                pd->show_troops();
+            }        
 
             // 有军团被消灭，结束
             if (pa->unit_num == 0 || pd->unit_num == 0){
@@ -138,11 +165,28 @@ double attack(Legion& A, Legion& B, const std::map<std::string, bool> &skill_lis
                     else pd->units.at(i).current_troops = after_troop;
                 }
             }
+
+            // 更改buff
+            for (auto p : pa->buffs){
+                if (p.first == "Immortality") p.second = 0;
+                else p.second--;
+            }
+            for (auto p : pd->buffs){
+                if (p.first == "Immortality") p.second = 0;
+                else p.second--;
+            }
+            unordered_map<string, int>::iterator it = pa->buffs.begin();
+            while(it != pa->buffs.end()){
+                if (it->second <= 0){
+                    it = pa->buffs.erase(it);
+                }
+                else it++;
+            }
         }   
     }
 
     if (is_end) return calc_score(A, B);
-    else return 0;    // 不太可能的情况 20回合都没死
+    else return 0;    // 不太可能的情况 40回合都没死
 }
 
 int main(int argc, char **argv){

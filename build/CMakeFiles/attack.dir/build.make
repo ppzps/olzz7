@@ -69,60 +69,60 @@ include CMakeFiles/attack.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/attack.dir/flags.make
 
-CMakeFiles/attack.dir/attack.o: CMakeFiles/attack.dir/flags.make
-CMakeFiles/attack.dir/attack.o: ../attack.cpp
-CMakeFiles/attack.dir/attack.o: CMakeFiles/attack.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/attack.dir/attack.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/attack.dir/attack.o -MF CMakeFiles/attack.dir/attack.o.d -o CMakeFiles/attack.dir/attack.o -c /home/ggz/code/olzz7/attack.cpp
+CMakeFiles/attack.dir/attack.cpp.o: CMakeFiles/attack.dir/flags.make
+CMakeFiles/attack.dir/attack.cpp.o: ../attack.cpp
+CMakeFiles/attack.dir/attack.cpp.o: CMakeFiles/attack.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/attack.dir/attack.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/attack.dir/attack.cpp.o -MF CMakeFiles/attack.dir/attack.cpp.o.d -o CMakeFiles/attack.dir/attack.cpp.o -c /home/ggz/code/olzz7/attack.cpp
 
-CMakeFiles/attack.dir/attack.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/attack.dir/attack.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/attack.cpp > CMakeFiles/attack.dir/attack.i
+CMakeFiles/attack.dir/attack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/attack.dir/attack.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/attack.cpp > CMakeFiles/attack.dir/attack.cpp.i
 
-CMakeFiles/attack.dir/attack.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/attack.dir/attack.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/attack.cpp -o CMakeFiles/attack.dir/attack.s
+CMakeFiles/attack.dir/attack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/attack.dir/attack.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/attack.cpp -o CMakeFiles/attack.dir/attack.cpp.s
 
-CMakeFiles/attack.dir/damage_new.o: CMakeFiles/attack.dir/flags.make
-CMakeFiles/attack.dir/damage_new.o: ../damage_new.cpp
-CMakeFiles/attack.dir/damage_new.o: CMakeFiles/attack.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/attack.dir/damage_new.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/attack.dir/damage_new.o -MF CMakeFiles/attack.dir/damage_new.o.d -o CMakeFiles/attack.dir/damage_new.o -c /home/ggz/code/olzz7/damage_new.cpp
+CMakeFiles/attack.dir/damage.cpp.o: CMakeFiles/attack.dir/flags.make
+CMakeFiles/attack.dir/damage.cpp.o: ../damage.cpp
+CMakeFiles/attack.dir/damage.cpp.o: CMakeFiles/attack.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/attack.dir/damage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/attack.dir/damage.cpp.o -MF CMakeFiles/attack.dir/damage.cpp.o.d -o CMakeFiles/attack.dir/damage.cpp.o -c /home/ggz/code/olzz7/damage.cpp
 
-CMakeFiles/attack.dir/damage_new.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/attack.dir/damage_new.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/damage_new.cpp > CMakeFiles/attack.dir/damage_new.i
+CMakeFiles/attack.dir/damage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/attack.dir/damage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/damage.cpp > CMakeFiles/attack.dir/damage.cpp.i
 
-CMakeFiles/attack.dir/damage_new.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/attack.dir/damage_new.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/damage_new.cpp -o CMakeFiles/attack.dir/damage_new.s
+CMakeFiles/attack.dir/damage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/attack.dir/damage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/damage.cpp -o CMakeFiles/attack.dir/damage.cpp.s
 
-CMakeFiles/attack.dir/unit.o: CMakeFiles/attack.dir/flags.make
-CMakeFiles/attack.dir/unit.o: ../unit.cpp
-CMakeFiles/attack.dir/unit.o: CMakeFiles/attack.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/attack.dir/unit.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/attack.dir/unit.o -MF CMakeFiles/attack.dir/unit.o.d -o CMakeFiles/attack.dir/unit.o -c /home/ggz/code/olzz7/unit.cpp
+CMakeFiles/attack.dir/unit.cpp.o: CMakeFiles/attack.dir/flags.make
+CMakeFiles/attack.dir/unit.cpp.o: ../unit.cpp
+CMakeFiles/attack.dir/unit.cpp.o: CMakeFiles/attack.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/attack.dir/unit.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/attack.dir/unit.cpp.o -MF CMakeFiles/attack.dir/unit.cpp.o.d -o CMakeFiles/attack.dir/unit.cpp.o -c /home/ggz/code/olzz7/unit.cpp
 
-CMakeFiles/attack.dir/unit.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/attack.dir/unit.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/unit.cpp > CMakeFiles/attack.dir/unit.i
+CMakeFiles/attack.dir/unit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/attack.dir/unit.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/unit.cpp > CMakeFiles/attack.dir/unit.cpp.i
 
-CMakeFiles/attack.dir/unit.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/attack.dir/unit.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/unit.cpp -o CMakeFiles/attack.dir/unit.s
+CMakeFiles/attack.dir/unit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/attack.dir/unit.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/unit.cpp -o CMakeFiles/attack.dir/unit.cpp.s
 
 # Object files for target attack
 attack_OBJECTS = \
-"CMakeFiles/attack.dir/attack.o" \
-"CMakeFiles/attack.dir/damage_new.o" \
-"CMakeFiles/attack.dir/unit.o"
+"CMakeFiles/attack.dir/attack.cpp.o" \
+"CMakeFiles/attack.dir/damage.cpp.o" \
+"CMakeFiles/attack.dir/unit.cpp.o"
 
 # External object files for target attack
 attack_EXTERNAL_OBJECTS =
 
-attack: CMakeFiles/attack.dir/attack.o
-attack: CMakeFiles/attack.dir/damage_new.o
-attack: CMakeFiles/attack.dir/unit.o
+attack: CMakeFiles/attack.dir/attack.cpp.o
+attack: CMakeFiles/attack.dir/damage.cpp.o
+attack: CMakeFiles/attack.dir/unit.cpp.o
 attack: CMakeFiles/attack.dir/build.make
 attack: CMakeFiles/attack.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable attack"

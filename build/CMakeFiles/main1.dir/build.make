@@ -83,19 +83,19 @@ CMakeFiles/main1.dir/main1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main1.dir/main1.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/main1.cpp -o CMakeFiles/main1.dir/main1.cpp.s
 
-CMakeFiles/main1.dir/damage_new.cpp.o: CMakeFiles/main1.dir/flags.make
-CMakeFiles/main1.dir/damage_new.cpp.o: ../damage_new.cpp
-CMakeFiles/main1.dir/damage_new.cpp.o: CMakeFiles/main1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main1.dir/damage_new.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main1.dir/damage_new.cpp.o -MF CMakeFiles/main1.dir/damage_new.cpp.o.d -o CMakeFiles/main1.dir/damage_new.cpp.o -c /home/ggz/code/olzz7/damage_new.cpp
+CMakeFiles/main1.dir/damage.cpp.o: CMakeFiles/main1.dir/flags.make
+CMakeFiles/main1.dir/damage.cpp.o: ../damage.cpp
+CMakeFiles/main1.dir/damage.cpp.o: CMakeFiles/main1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main1.dir/damage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main1.dir/damage.cpp.o -MF CMakeFiles/main1.dir/damage.cpp.o.d -o CMakeFiles/main1.dir/damage.cpp.o -c /home/ggz/code/olzz7/damage.cpp
 
-CMakeFiles/main1.dir/damage_new.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main1.dir/damage_new.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/damage_new.cpp > CMakeFiles/main1.dir/damage_new.cpp.i
+CMakeFiles/main1.dir/damage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main1.dir/damage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/damage.cpp > CMakeFiles/main1.dir/damage.cpp.i
 
-CMakeFiles/main1.dir/damage_new.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main1.dir/damage_new.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/damage_new.cpp -o CMakeFiles/main1.dir/damage_new.cpp.s
+CMakeFiles/main1.dir/damage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main1.dir/damage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/damage.cpp -o CMakeFiles/main1.dir/damage.cpp.s
 
 CMakeFiles/main1.dir/unit.cpp.o: CMakeFiles/main1.dir/flags.make
 CMakeFiles/main1.dir/unit.cpp.o: ../unit.cpp
@@ -114,14 +114,14 @@ CMakeFiles/main1.dir/unit.cpp.s: cmake_force
 # Object files for target main1
 main1_OBJECTS = \
 "CMakeFiles/main1.dir/main1.cpp.o" \
-"CMakeFiles/main1.dir/damage_new.cpp.o" \
+"CMakeFiles/main1.dir/damage.cpp.o" \
 "CMakeFiles/main1.dir/unit.cpp.o"
 
 # External object files for target main1
 main1_EXTERNAL_OBJECTS =
 
 main1: CMakeFiles/main1.dir/main1.cpp.o
-main1: CMakeFiles/main1.dir/damage_new.cpp.o
+main1: CMakeFiles/main1.dir/damage.cpp.o
 main1: CMakeFiles/main1.dir/unit.cpp.o
 main1: CMakeFiles/main1.dir/build.make
 main1: CMakeFiles/main1.dir/link.txt

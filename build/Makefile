@@ -130,6 +130,19 @@ main1/fast:
 .PHONY : main1/fast
 
 #=============================================================================
+# Target rules for targets named attack
+
+# Build rule for target.
+attack: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 attack
+.PHONY : attack
+
+# fast build rule for target.
+attack/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/build
+.PHONY : attack/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -142,32 +155,59 @@ test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
 
-damage_new.o: damage_new.cpp.o
-.PHONY : damage_new.o
+attack.o: attack.cpp.o
+.PHONY : attack.o
 
 # target to build an object file
-damage_new.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/damage_new.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/damage_new.cpp.o
-.PHONY : damage_new.cpp.o
+attack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/attack.cpp.o
+.PHONY : attack.cpp.o
 
-damage_new.i: damage_new.cpp.i
-.PHONY : damage_new.i
+attack.i: attack.cpp.i
+.PHONY : attack.i
 
 # target to preprocess a source file
-damage_new.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/damage_new.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/damage_new.cpp.i
-.PHONY : damage_new.cpp.i
+attack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/attack.cpp.i
+.PHONY : attack.cpp.i
 
-damage_new.s: damage_new.cpp.s
-.PHONY : damage_new.s
+attack.s: attack.cpp.s
+.PHONY : attack.s
 
 # target to generate assembly for a file
-damage_new.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/damage_new.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/damage_new.cpp.s
-.PHONY : damage_new.cpp.s
+attack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/attack.cpp.s
+.PHONY : attack.cpp.s
+
+damage.o: damage.cpp.o
+.PHONY : damage.o
+
+# target to build an object file
+damage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/damage.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/damage.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/damage.cpp.o
+.PHONY : damage.cpp.o
+
+damage.i: damage.cpp.i
+.PHONY : damage.i
+
+# target to preprocess a source file
+damage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/damage.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/damage.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/damage.cpp.i
+.PHONY : damage.cpp.i
+
+damage.s: damage.cpp.s
+.PHONY : damage.s
+
+# target to generate assembly for a file
+damage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/damage.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/damage.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/damage.cpp.s
+.PHONY : damage.cpp.s
 
 main1.o: main1.cpp.o
 .PHONY : main1.o
@@ -223,6 +263,7 @@ unit.o: unit.cpp.o
 # target to build an object file
 unit.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/unit.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/unit.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/unit.cpp.o
 .PHONY : unit.cpp.o
 
@@ -232,6 +273,7 @@ unit.i: unit.cpp.i
 # target to preprocess a source file
 unit.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/unit.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/unit.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/unit.cpp.i
 .PHONY : unit.cpp.i
 
@@ -241,6 +283,7 @@ unit.s: unit.cpp.s
 # target to generate assembly for a file
 unit.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/unit.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/unit.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/unit.cpp.s
 .PHONY : unit.cpp.s
 
@@ -252,11 +295,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... attack"
 	@echo "... main1"
 	@echo "... test"
-	@echo "... damage_new.o"
-	@echo "... damage_new.i"
-	@echo "... damage_new.s"
+	@echo "... attack.o"
+	@echo "... attack.i"
+	@echo "... attack.s"
+	@echo "... damage.o"
+	@echo "... damage.i"
+	@echo "... damage.s"
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"

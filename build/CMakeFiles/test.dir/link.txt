@@ -1,1 +1,1 @@
-/usr/bin/c++ --std=c++11 -g CMakeFiles/test.dir/test.cpp.o CMakeFiles/test.dir/damage_new.cpp.o CMakeFiles/test.dir/unit.cpp.o -o test 
+/usr/bin/c++ --std=c++11 -g CMakeFiles/test.dir/test.cpp.o CMakeFiles/test.dir/damage.cpp.o CMakeFiles/test.dir/unit.cpp.o -o test 

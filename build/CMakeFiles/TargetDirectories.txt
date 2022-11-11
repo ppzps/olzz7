@@ -1,4 +1,5 @@
 /home/ggz/code/olzz7/build/CMakeFiles/rebuild_cache.dir
 /home/ggz/code/olzz7/build/CMakeFiles/main1.dir
+/home/ggz/code/olzz7/build/CMakeFiles/attack.dir
 /home/ggz/code/olzz7/build/CMakeFiles/edit_cache.dir
 /home/ggz/code/olzz7/build/CMakeFiles/test.dir

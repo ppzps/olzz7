@@ -83,19 +83,19 @@ CMakeFiles/test.dir/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/test.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/test.cpp -o CMakeFiles/test.dir/test.cpp.s
 
-CMakeFiles/test.dir/damage_new.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/damage_new.cpp.o: ../damage_new.cpp
-CMakeFiles/test.dir/damage_new.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/test.dir/damage_new.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/damage_new.cpp.o -MF CMakeFiles/test.dir/damage_new.cpp.o.d -o CMakeFiles/test.dir/damage_new.cpp.o -c /home/ggz/code/olzz7/damage_new.cpp
+CMakeFiles/test.dir/damage.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/damage.cpp.o: ../damage.cpp
+CMakeFiles/test.dir/damage.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/test.dir/damage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/damage.cpp.o -MF CMakeFiles/test.dir/damage.cpp.o.d -o CMakeFiles/test.dir/damage.cpp.o -c /home/ggz/code/olzz7/damage.cpp
 
-CMakeFiles/test.dir/damage_new.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/damage_new.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/damage_new.cpp > CMakeFiles/test.dir/damage_new.cpp.i
+CMakeFiles/test.dir/damage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/damage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ggz/code/olzz7/damage.cpp > CMakeFiles/test.dir/damage.cpp.i
 
-CMakeFiles/test.dir/damage_new.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/damage_new.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/damage_new.cpp -o CMakeFiles/test.dir/damage_new.cpp.s
+CMakeFiles/test.dir/damage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/damage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ggz/code/olzz7/damage.cpp -o CMakeFiles/test.dir/damage.cpp.s
 
 CMakeFiles/test.dir/unit.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/unit.cpp.o: ../unit.cpp
@@ -114,14 +114,14 @@ CMakeFiles/test.dir/unit.cpp.s: cmake_force
 # Object files for target test
 test_OBJECTS = \
 "CMakeFiles/test.dir/test.cpp.o" \
-"CMakeFiles/test.dir/damage_new.cpp.o" \
+"CMakeFiles/test.dir/damage.cpp.o" \
 "CMakeFiles/test.dir/unit.cpp.o"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
 
 test: CMakeFiles/test.dir/test.cpp.o
-test: CMakeFiles/test.dir/damage_new.cpp.o
+test: CMakeFiles/test.dir/damage.cpp.o
 test: CMakeFiles/test.dir/unit.cpp.o
 test: CMakeFiles/test.dir/build.make
 test: CMakeFiles/test.dir/link.txt

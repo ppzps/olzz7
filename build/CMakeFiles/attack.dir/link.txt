@@ -1,1 +1,1 @@
-/usr/bin/c++ --std=c++11 -g -rdynamic CMakeFiles/attack.dir/attack.o CMakeFiles/attack.dir/damage_new.o CMakeFiles/attack.dir/unit.o -o attack 
+/usr/bin/c++ --std=c++11 -g CMakeFiles/attack.dir/attack.cpp.o CMakeFiles/attack.dir/damage.cpp.o CMakeFiles/attack.dir/unit.cpp.o -o attack 

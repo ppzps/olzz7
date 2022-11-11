@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/attack.dir/attack.o"
-  "CMakeFiles/attack.dir/attack.o.d"
-  "CMakeFiles/attack.dir/damage_new.o"
-  "CMakeFiles/attack.dir/damage_new.o.d"
-  "CMakeFiles/attack.dir/unit.o"
-  "CMakeFiles/attack.dir/unit.o.d"
+  "CMakeFiles/attack.dir/attack.cpp.o"
+  "CMakeFiles/attack.dir/attack.cpp.o.d"
+  "CMakeFiles/attack.dir/damage.cpp.o"
+  "CMakeFiles/attack.dir/damage.cpp.o.d"
+  "CMakeFiles/attack.dir/unit.cpp.o"
+  "CMakeFiles/attack.dir/unit.cpp.o.d"
   "attack"
   "attack.pdb"
 )

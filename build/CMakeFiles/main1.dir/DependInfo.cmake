@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ggz/code/olzz7/damage_new.cpp" "CMakeFiles/main1.dir/damage_new.cpp.o" "gcc" "CMakeFiles/main1.dir/damage_new.cpp.o.d"
+  "/home/ggz/code/olzz7/damage.cpp" "CMakeFiles/main1.dir/damage.cpp.o" "gcc" "CMakeFiles/main1.dir/damage.cpp.o.d"
   "/home/ggz/code/olzz7/main1.cpp" "CMakeFiles/main1.dir/main1.cpp.o" "gcc" "CMakeFiles/main1.dir/main1.cpp.o.d"
   "/home/ggz/code/olzz7/unit.cpp" "CMakeFiles/main1.dir/unit.cpp.o" "gcc" "CMakeFiles/main1.dir/unit.cpp.o.d"
   )

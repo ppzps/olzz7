@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/ggz/code/olzz7/build
 
 # The main recursive "all" target.
 all: CMakeFiles/main1.dir/all
+all: CMakeFiles/attack.dir/all
 all: CMakeFiles/test.dir/all
 .PHONY : all
 
@@ -73,6 +74,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/main1.dir/clean
+clean: CMakeFiles/attack.dir/clean
 clean: CMakeFiles/test.dir/clean
 .PHONY : clean
 
@@ -83,7 +85,7 @@ clean: CMakeFiles/test.dir/clean
 CMakeFiles/main1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=1,2,3,4 "Built target main1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=5,6,7,8 "Built target main1"
 .PHONY : CMakeFiles/main1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -103,13 +105,39 @@ CMakeFiles/main1.dir/clean:
 .PHONY : CMakeFiles/main1.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/attack.dir
+
+# All Build rule for target.
+CMakeFiles/attack.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=1,2,3,4 "Built target attack"
+.PHONY : CMakeFiles/attack.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/attack.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ggz/code/olzz7/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/attack.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ggz/code/olzz7/build/CMakeFiles 0
+.PHONY : CMakeFiles/attack.dir/rule
+
+# Convenience name for target.
+attack: CMakeFiles/attack.dir/rule
+.PHONY : attack
+
+# clean rule for target.
+CMakeFiles/attack.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/attack.dir/build.make CMakeFiles/attack.dir/clean
+.PHONY : CMakeFiles/attack.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/test.dir
 
 # All Build rule for target.
 CMakeFiles/test.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=5,6,7,8 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ggz/code/olzz7/build/CMakeFiles --progress-num=9,10,11,12 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.

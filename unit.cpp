@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "unit.h"
 
 using namespace std;
