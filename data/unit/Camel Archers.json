@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Camel Archers",
+        "type": 5,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 600,
+        "blood": 0.7333333,
+        "attack1": 144, 
+        "attack2": 170,
+        "defence": 64,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 45,
+        "mobility": 10,
+        "skills": ["Knight Bow 3", "Shoot", "Precision", "Camel"]
+    }
+]

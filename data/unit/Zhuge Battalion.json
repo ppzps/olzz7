@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Zhuge Battalion",
+        "type": 4,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 750,
+        "blood": 1,
+        "attack1": 157, 
+        "attack2": 175,
+        "defence": 105,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 5,
+        "mobility": 9,
+        "skills": ["Liannu 3", "Chase", "Shoot", "Combo"]
+    }
+]

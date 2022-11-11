@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Mongolian Raiders",
+        "type": 5,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 637,
+        "blood": 0.9166667,
+        "attack1": 162, 
+        "attack2": 180,
+        "defence": 72,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 70,
+        "mobility": 11,
+        "skills": ["Knight Bow 3", "Shoot", "Precision", "Mobilize"]
+    }
+]

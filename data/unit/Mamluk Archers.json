@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Mamluk Archers",
+        "type": 5,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 675,
+        "blood": 0.7333333,
+        "attack1": 173, 
+        "attack2": 203,
+        "defence": 87,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 80,
+        "mobility": 10,
+        "skills": ["Knight Bow 3", "Shoot", "Precision", "Repeated Fire"]
+    }
+]

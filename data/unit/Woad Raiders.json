@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Woad Raiders",
+        "type": 4,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 750,
+        "blood": 1,
+        "attack1": 115, 
+        "attack2": 126,
+        "defence": 58,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 10,
+        "mobility": 10,
+        "skills": ["Javelin 3", "Chase", "Shoot", "Mobilize"]
+    }
+]

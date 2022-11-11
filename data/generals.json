@@ -1,0 +1,339 @@
+[
+    {
+        "name": "Richard I",
+        "infantry_abi": 42,
+        "cavalry_abi": 126,
+        "ranged_abi": 40,
+
+        "has_unique": 1,
+        "unit_name": "Knights Templar",
+
+        "legion_dmg_inc1": 1.8515,
+        "legion_dmg_inc2": 1.6215,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1.15,
+        "polearm_master": 1.15
+    },
+    {
+        "name": "Charlemagne",
+        "infantry_abi": 50,
+        "cavalry_abi": 113,
+        "ranged_abi": 32,
+
+        "has_unique": 1,
+        "unit_name": "Knights Hospitaller",
+
+        "legion_dmg_inc1": 1.38,
+        "legion_dmg_inc2": 1.15,
+        "legion_dmg_red": 0.504,
+
+        "melee_cavalry_expert": 1.1,
+        "melee_infantry_expert": 1.15
+    },
+    {
+        "name": "Timur",
+        "infantry_abi": 25,
+        "cavalry_abi": 37,
+        "ranged_abi": 160,
+
+        "has_unique": 1,
+        "unit_name": "Imperial how cavalry",
+
+        "legion_dmg_inc1": 1.633,
+        "legion_dmg_inc2": 1.403,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1.1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "Custom1",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 164,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.964,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "Custom2",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 204,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 2.017,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "none",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 0,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1,
+        "legion_dmg_red": 1,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1,
+        "shooter_master": 1
+    },
+    {
+        "name": "t3n",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 16,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.09,
+        "legion_dmg_red": 0.87,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.05,
+        "shooter_master": 1.05
+    },
+    {
+        "name": "t2n",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 56,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.15,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "t2y0",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 74,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.6134,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1,
+        "shooter_master": 1.15
+    },
+    {
+        "name": "t1n",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 61,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.1,
+        "legion_dmg_red": 0.86,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.15,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "t1y0",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 101,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.3915,
+        "legion_dmg_red": 0.86,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.15
+    },
+    {
+        "name": "t1y2",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 125,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.4945,
+        "legion_dmg_red": 0.86,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.15
+    },
+    {
+        "name": "t1y3",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 137,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.5474,
+        "legion_dmg_red": 0.86,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.15
+    },
+    {
+        "name": "t1y4",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 149,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.6813,
+        "legion_dmg_red": 0.86,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.15
+    },
+    {
+        "name": "t1y5",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 161,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.8216,
+        "legion_dmg_red": 0.86,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.15
+    },
+    {
+        "name": "t0n",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 76,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.15,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.15,
+        "shooter_master": 1.07
+    },
+    {
+        "name": "t0y0",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 116,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.7748,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "t0y2",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 140,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.9,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "t0y3",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 152,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 1.964,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "t0y4",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 164,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 2.13,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    },
+    {
+        "name": "t0y5",
+        "infantry_abi": 0,
+        "cavalry_abi": 0,
+        "ranged_abi": 176,
+
+        "has_unique": 0,
+
+        "legion_dmg_inc1": 1,
+        "legion_dmg_inc2": 2.304,
+        "legion_dmg_red": 0.8,
+
+        "cavalry_tactician": 1,
+        "ranged_tactician": 1.2,
+        "shooter_master": 1.1
+    }
+]

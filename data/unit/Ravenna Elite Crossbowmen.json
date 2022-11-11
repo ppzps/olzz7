@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Ravenna Elite Crossbowmen",
+        "type": 4,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 750,
+        "blood": 1,
+        "attack1": 142, 
+        "attack2": 157,
+        "defence": 83,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 0,
+        "mobility": 9,
+        "skills": ["Crossbow 3", "Climb", "Shoot", "Repeated Fire"]
+    }
+]

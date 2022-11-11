@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Longbowmen",
+        "type": 4,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 750,
+        "blood": 1,
+        "attack1": 154, 
+        "attack2": 171,
+        "defence": 72,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 0,
+        "mobility": 9,
+        "skills": ["Longbow 3", "Chase", "Shoot", "Fire"]
+    }
+]

@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Frank Axemen",
+        "type": 4,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 825,
+        "blood": 1,
+        "attack1": 136, 
+        "attack2": 150,
+        "defence": 70,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 0,
+        "mobility": 9,
+        "skills": ["Throwing Axe 3", "Climb", "Shoot", "Resolute"]
+    }
+]

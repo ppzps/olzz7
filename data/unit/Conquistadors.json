@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Conquistadors",
+        "type": 4,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 750,
+        "blood": 1,
+        "attack1": 171, 
+        "attack2": 190,
+        "defence": 96,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 0,
+        "mobility": 9,
+        "skills": ["Arquebus 3", "Chase", "Shoot", "Well Trained"]
+    }
+]

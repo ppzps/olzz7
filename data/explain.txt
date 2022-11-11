@@ -1,8 +1,7 @@
 部队自带技能列表
 部队基本信息
-军团部队列表  [0, 5, 4] 代表三编军团，分别为近步，弓骑，步弓
 
-
+6级基础兵信息
 unit.json
     melee infantry       type 0  近步
     defense infantry     type 1  防步
@@ -11,6 +10,28 @@ unit.json
     ranged infantry      type 4  步弓
     ranged cavalry       type 5  弓骑
 
+将领被动技能信息
+    infantry_abi  步兵能力
+    cavalry_abi   骑兵能力
+    ranged_abi    远程能力
+    军团增伤主要计算爵位，增伤装备，宝石，专武等；军团减伤同理
+    legion_dmg_inc1  有专武和专兵的军团增伤
+    legion_dmg_inc2  无专武和专兵的军团增伤
+    legion_dmg_red   军团减伤
+    infantry_tactician   步兵战术大师
+    cavalry_tactician    骑兵战术大师
+    ranged_tactician     远程战术大师
+    melee_infantry_expert  近程步兵专家
+    melee_cavalry_expert   近程骑兵专家
+    defence_infantry_expert  防步专家
+    charging_cavalry_expert  冲骑专家
+    assault_master      突击大师
+    polearm_master      长柄武器大师
+    shooter_master      射击大师
+    swordman_master     剑术大师
+    skirmisher_master   投掷大师
+
+15级高级兵信息
 unit2.json
     --------- 近步 ---------
     Hengdao Battalion  横刀营
@@ -37,7 +58,7 @@ unit2.json
     Conquistadors     征服者
     Dragoon           龙骑兵
     Zhuge Battalion   速弩营
-    Genoese Shielded Crossbowmen   热那亚弩兵
+    Genoese Shielded Crossbowmen   热那亚巨盾弩兵
     Ravenna Elite Crossbowmen      拉文纳
     Woad Raiders      靛蓝
     --------- 弓骑---------
@@ -46,7 +67,7 @@ unit2.json
     Elephant Archers      战象射手
     Mongolian Raiders     蒙突
 
-
+兵种被动技能
 skill.json
     0/1 legion effect
     
@@ -57,56 +78,81 @@ skill.json
     "Archery 2": 弓箭2 对防步，近骑伤害 +15%
 
     ------满级武器技能-------
-    "Hengdao 3": 0 横刀3 ？
+    "Hengdao 3": 0 横刀3 对远程步兵伤害 +25%
     "Single-Handed Sword 3": 0 单手剑3 对远程步兵伤害 +25%
     "Dual-Wielded Weapon 3": 0 双持武器3 对远程步兵伤害+30%
-    "Modao 3": 0  陌刀3 ？
+    "Modao 3": 0  陌刀3 对冲锋骑兵造成伤害 +30% 反击伤害 +20%
     "Halberd 3": 0 长戟3 对冲锋骑兵伤害 +30% 降低敌人40%冲锋率
     "Long Spear 3": 0 长枪3 对冲锋骑兵伤害 +25% 降低敌人35%冲锋率
     "Knight Sword 3": 0 骑士剑3 对远程骑兵伤害 +25%
     "War Axe 3": 0 战斧3 对远程步兵伤害 +30%
-    "War Halberd 3" 0 战戟3 ？ 
+    "War Halberd 3" 0 战戟3 对近步伤害 +35%
     "Knight Spear 3": 0 骑士枪3 对近步伤害 +30%
-    "Archery 3": 0 弓箭3 对防步，近骑伤害 +20%
-    "Javelin 3": 0 标枪3 对防步，近骑伤害 +16%
-    "Crossbow 3": 0 十字弩3 对防步，近骑伤害 +22% 且无视对方25%防御
-    "Arquebus 3": 0 火枪3 ?
 
+    "Heavy Spear 3": 0 骑士投枪3 防步伤害 +16% 近骑伤害 +5%  (8, 12, 16)  重甲突袭武器和骑士枪重合了。。。
+    "Knight Bow 3": 0 骑士弓3 防步伤害 +20% 近骑伤害 +5%   (10, 15, 20)
+
+    "Rock Slinger 3" 0 投石3 等价于 标枪3
+    "Javelin 3": 0 标枪3 防步伤害 +5% 近骑伤害 +16%   (8, 12, 16)
+    "Archery 3": 0 弓箭3 防步伤害 +5% 近骑伤害 +20%   (10, 15, 20)
+    "Longbow 3": 0 长弓3 防步伤害 +5% 近骑伤害 +25%   (15, 20, 25)
+    "Flame Longbow 3": 0 火长弓3 防步伤害 +5% 近骑伤害 +25% 100%概率着火 (15, 20, 25)
+
+    "Throwing Axe 1": 0 飞斧1 防步伤害 5% 近骑伤害  6% 无视对方10防御
+    "Throwing Axe 2": 0 飞斧2 防步伤害 5% 近骑伤害 11% 无视对方15防御
+    "Throwing Axe 3": 0 飞斧3 防步伤害 5% 近骑伤害 16% 无视对方20防御  (6, 11, 16)
+    "Crossbow 1": 0 十字弩1 对防步伤害 5% 近骑伤害 12% 且无视对方15防御
+    "Crossbow 2": 0 十字弩2 对防步伤害 5% 近骑伤害 17% 且无视对方20防御
+    "Crossbow 3": 0 十字弩3 对防步伤害 5% 近骑伤害 22% 且无视对方25防御 (12, 17, 22)
+    "Arquebus 1": 0 火枪1 对防步伤害 5% 近骑伤害 15% 且无视对方20防御
+    "Arquebus 2": 0 火枪2 对防步伤害 5% 近骑伤害 20% 且无视对方25防御
+    "Arquebus 3": 0 火枪3 对防步伤害 5% 近骑伤害 25% 且无视对方30防御  (15, 20, 25)
+    "Liannu 3": 0  连弩3 对防步伤害 +30%   英文还是Crossbow和十字弩重了。。。  (20, 25, 30)
+
+    ------各种其他技能-------
     "Concentration": 1 集中 受到远程伤害 -15%
     "Top shield": 0 顶盾 受到远程伤害 -20%
-    “Dragon Shield": 1 龙盾 受到远程伤害 -20%
+    "Dragon Shield": 1 龙盾 受到远程伤害 -20%
     "Square": 1 方阵 受到骑兵伤害 -15%
     "Deterrence": 1 威慑 受到近程步兵伤害 -15%
-    "Trample": 1 践踏 无视敌方5%防御
+    "Trample": 1 践踏 迂回成功时对方 -5士气
+    "Massive Shield": 0 巨盾 远程伤害降低50%
     "Bloodlust": 0 嗜血 血量低于50%时，反击伤害 +5%
     "Coordinated Counterattack": 1 协同反击
     "Frontline Demolisher": 0 冲锋毁灭者 被冲锋时，反击伤害增加20%
     "Strong Counter": 0  强力反击 多段反击概率 +20%
     "Thousand miles raid": 0 千里奔袭 迂回概率 +10% 迂回伤害 +20%
-    
+    "Resolute": 0 意志坚定 受到骑兵伤害减少 10%
+
+    ------各种其他技能-------
     "Banner": 1 战旗 相邻单位 伤害 +5%
     "Healing": 1 治疗 相邻单位每回合回复5%血量
     "Fearless": 1 无畏 相邻单位伤害降低5%
-    "Guardians": 1  守护者 圣墓技能 ??? 
+    "Guardians": 1  守护者 圣墓技能 增伤于剩余移动力挂钩，0-2 增伤20%；3-5 增伤10%；6-8 增伤5%
     "Charge": 1 冲击 剩余攻击力大于5时，伤害 +10%，反击无效
     "Black Armor": 1 玄甲 每回合限1次，迂回后，军团行动力+2
     "Art of War": 1 兵法 每回合限1次，冲锋后，军团行动力+2
-    "integration of the army": 1 整编 满编时，军团行动力+1
+    "Integration of the army": 1 整编 满编时，军团行动力+1
     "Mobilize": 1 机动 攻击消耗 -1
     "Repeated Fire": 1 速射 攻击后剩余行动力，则马上行动力+1
-    "Massive Shield": 0 巨盾 远程伤害降低50%
-    "Sniper": 1 狙击 永远造成最高伤
-    "Combo": 0 连击 20%概率 造成双倍伤害
-    "Arror Rain": 1 剑雨 进攻时无视对方20%防御  ?? 防守时
+    "Sniper": 1 狙击 永远造成最高伤  -> 实现龙骑兵的bug
+    "Combo": 0 连击 20%概率 造成双倍伤害  -> 速弩营专属
+    "Arrow Rain": 1 剑雨 进攻时无视对方60%防御  
+    "Precision": 1 精准 士气高昂时无视对方10%防御 
+    "Fire": 1 抛射 被攻击的部队当前回合行动力 +1    虽然不是军团技能，但是与军团技能类似
 
-    
+    ------和伤害没有直接关系的技能-------
     "Chase": 1 追击 森林地形
     "Climb": 1 攀爬 山地地形
     "Guard": 1 近卫 不受气候影响
+    "Camel": 1 骆驼 冲锋成功后，对手士气下降10
     "Elephant": 1 巨象 冲锋成功后，对手士气下降15
     "Well Trained": 1 训练有素 士气影响减半
     "Flagbearer": 1 旗手 每回合士气 +1
     "Shoot": 0 射击 优先群攻
 
+
+完成基础兵的平衡性测试
 tasks.json
-    考虑基础兵的所有组合，共6 + 15 × 2 + 20 = 56种组合
+    考虑6级金色基础兵的所有组合，共6 + 15 × 2 + 20 = 56种组合
+    军团部队列表  [0, 5, 4] 代表三编军团，分别为近步，弓骑，步弓

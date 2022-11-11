@@ -1,3 +1,6 @@
+// 测试基础兵种不同搭配的克制关系
+// ggzgs
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>

@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Genoese Shielded Crossbowmen",
+        "type": 4,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 750,
+        "blood": 1,
+        "attack1": 169, 
+        "attack2": 187,
+        "defence": 90,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 0,
+        "mobility": 9,
+        "skills": ["Crossbow 3", "Climb", "Shoot", "Massive Shield"]
+    }
+]

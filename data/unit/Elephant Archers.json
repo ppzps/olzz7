@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Elephant Archers",
+        "type": 5,
+        "ranged": 1, 
+        "level": 15,
+        "troops": 525,
+        "blood": 0.55,
+        "attack1": 147, 
+        "attack2": 172,
+        "defence": 126,
+        "charge": 0,
+        "detour": 0,
+        "counter": 0,
+        "dodge": 8,
+        "mobility": 8,
+        "skills": ["Knight Bow 3", "Shoot", "Precision", "Elephant"]
+    }
+]

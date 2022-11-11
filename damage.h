@@ -19,8 +19,13 @@ inline double convert_troops(double h){
 
 // 防御转换公式
 inline double convert_defence(double f, double a){
-    return  75 / (75 + f * (1 - a / 100));
+    return  75 / (75 + f - a);
 }
+// 多个无视防御的叠加
+inline double convert_defence(double f, double a, double b){
+    return  75 / (75 + f - a - b);
+}
+
 
 // 均匀分布随机数
 double uniform_rand(double lower, double upper);
@@ -38,6 +43,6 @@ double melee_calc_single(const Unit& A, const Unit& D);
 double ranged_calc_single(const Unit& A, const Unit& D, int fleet);
 
 // 军团实际对战
-void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill_list);
+void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill_list, bool verbose = true);
 
 #endif
