@@ -191,7 +191,7 @@ void Unit::add_general(const General* gen){
 
     // 如果有冲锋骑兵专家
     if (type == 3){
-        charge *= pgeneral->charging_cavalry_expert;
+        charge += pgeneral->charging_cavalry_expert;
     }
 }
 

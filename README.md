@@ -47,6 +47,8 @@ version 1.0 只适用于金色6级基础兵
         // 将领的相关被动技能，具体可查看 data/explain.txt
         "cavalry_tactician": 1.15,   // 骑兵战术大师
         "polearm_master": 1.15       // 长柄武器大师
+
+        // 特殊的是冲锋骑兵专家，需要填写整数，具体查看 explain.txt
     }
 ```
  

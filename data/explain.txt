@@ -18,20 +18,20 @@ unit.json
     ranged cavalry       type 5  弓骑
 
 将领被动技能信息
-    infantry_abi  步兵能力
+    infantry_abi  步兵能力 添整数
     cavalry_abi   骑兵能力
     ranged_abi    远程能力
     军团增伤主要计算爵位，增伤装备，宝石，专武等；军团减伤同理
-    legion_dmg_inc1  有专武和专兵的军团增伤
+    legion_dmg_inc1  有专武和专兵的军团增伤  增伤66% 填 1.66
     legion_dmg_inc2  无专武和专兵的军团增伤
-    legion_dmg_red   军团减伤
-    infantry_tactician   步兵战术大师
+    legion_dmg_red   军团减伤             减伤30% 填 0.7
+    infantry_tactician   步兵战术大师      
     cavalry_tactician    骑兵战术大师
-    ranged_tactician     远程战术大师
+    ranged_tactician     远程战术大师      远程战术大师4级，对应填1.2
     melee_infantry_expert  近程步兵专家
     melee_cavalry_expert   近程骑兵专家
     defence_infantry_expert  防步专家
-    charging_cavalry_expert  冲骑专家
+    charging_cavalry_expert  冲骑专家     冲锋率增加 10% 填整数 10
     assault_master      突击大师
     polearm_master      长柄武器大师
     shooter_master      射击大师
