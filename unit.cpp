@@ -199,14 +199,16 @@ Weapons Unit::judge_weapon() const{
     string weapon_skill = skills.at(0);
 
     if (weapon_skill.find("Single-handed Sword") == 0) return swordman;
-    else if (weapon_skill.find("Halberd") == 0) return polearm;
     else if (weapon_skill.find("Hengdao") == 0) return swordman;
+    else if (weapon_skill.find("Knight Sword") == 0) return swordman;
+
+    else if (weapon_skill.find("War Axe") == 0) return assualt;
     else if (weapon_skill.find("Double-Handed Sword") == 0) return assualt;
     else if (weapon_skill.find("Dual-Wielded Weapon") == 0) return assualt;
+
+    else if (weapon_skill.find("Halberd") == 0) return polearm;
     else if (weapon_skill.find("Modao") == 0) return polearm;
     else if (weapon_skill.find("Long Spear") == 0) return polearm;
-    else if (weapon_skill.find("Knight Sword") == 0) return swordman;
-    else if (weapon_skill.find("War Axe") == 0) return assualt;
     else if (weapon_skill.find("War Halberd") == 0) return polearm;
     else if (weapon_skill.find("Knight Spear") == 0) return polearm;
     else if (weapon_skill.find("Knight Halberd") == 0) return polearm;
@@ -215,6 +217,7 @@ Weapons Unit::judge_weapon() const{
     else if (weapon_skill.find("Javelin") == 0) return skirmisher;
     else if (weapon_skill.find("Heavy Spear") == 0) return skirmisher;
     else if (weapon_skill.find("Throwing Axe") == 0) return skirmisher;
+    
     else if (weapon_skill.find("Archery") == 0) return shooter;
     else if (weapon_skill.find("Knight Bow") == 0) return shooter;
     else if (weapon_skill.find("Longbow") == 0) return shooter;

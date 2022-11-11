@@ -145,8 +145,14 @@ double attack(Legion& A, Legion& B, const std::map<std::string, bool> &skill_lis
             }
 
             // 更改buff
-            for (auto p : pa->buffs){p.second--;}
-            for (auto p : pd->buffs){p.second--;}
+            for (auto p : pa->buffs){
+                if (p.first == "Immortality") p.second = 0;
+                else p.second--;
+            }
+            for (auto p : pd->buffs){
+                if (p.first == "Immortality") p.second = 0;
+                else p.second--;
+            }
             unordered_map<string, int>::iterator it = pa->buffs.begin();
             while(it != pa->buffs.end()){
                 if (it->second <= 0){

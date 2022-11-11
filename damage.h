@@ -11,6 +11,8 @@ const double ranged_alpha2 = 0.5;
 const double ranged_alpha3 = 0.3;
 // 防步反击系数
 const double defence_counter_alpha = 1.5;
+// 不朽的最大叠加次数
+const int immortality_max_num = 3;
 
 // 血量转换公式
 inline double convert_troops(double h){

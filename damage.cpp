@@ -44,28 +44,30 @@ double melee_calc_single(const Unit& A, const Unit& D){
 
     // 考虑技能和隐藏血量的影响
     double alpha = D.blood;
-    if (A.full_skills.count("Single-handed Sword 2") > 0 && D.type == 4) alpha *= 1.2;
-    if (A.full_skills.count("Halberd 2") > 0 && D.type == 3) alpha *= 1.25;
-    if (A.full_skills.count("Knight Sword 2") > 0 && D.type == 5) alpha *= 1.2;
-    if (A.full_skills.count("Knight Spear 2") > 0 && D.type == 0) alpha *= 1.25;
 
     if (A.full_skills.count("Single-Handed Sword 3") > 0 && D.type == 4) alpha *= 1.25;
     if (A.full_skills.count("Hengdao 3") > 0 && D.type == 4) alpha *= 1.25;
+    if (A.full_skills.count("Double-Handed Sword 3") > 0 && D.type == 4) alpha *= 1.3;
     if (A.full_skills.count("Dual-Wielded Weapon 3") > 0 && D.type == 4) alpha *= 1.3;
+    if (A.full_skills.count("War Axe 3") > 0 && D.type == 4) alpha *= 1.3;
+
     if (A.full_skills.count("Modao 3") > 0 && D.type == 3) alpha *= 1.3;
     if (A.full_skills.count("Halberd 3") > 0 && D.type == 3) alpha *= 1.3;
     if (A.full_skills.count("Long Spear 3") > 0 && D.type == 3) alpha *= 1.25;
+
     if (A.full_skills.count("Knight Sword 3") > 0 && D.type == 5) alpha *= 1.25;
-    if (A.full_skills.count("War Axe 3") > 0 && D.type == 4) alpha *= 1.3;
+
     if (A.full_skills.count("Knight Spear 3") > 0 && D.type == 0) alpha *= 1.3;
     if (A.full_skills.count("War Halberd 3") > 0 && D.type == 0) alpha *= 1.35;
+    if (A.full_skills.count("Knight Halberd 3") > 0){
+        if (D.type == 0) alpha *= 1.25;
+        else alpha *= 1.05;
+    }
 
-    if (A.full_skills.count("Banner") > 0) alpha *= 1.05;
-    if (D.full_skills.count("Fearless") > 0) alpha *= 0.95;
+    if (A.full_skills.count("Thump") > 0 && (D.type == 2 || D.type == 3)) alpha *= 1.05;
 
     if (D.full_skills.count("Square") > 0 && (A.type == 2 || A.type == 3)) alpha *= 0.85;
     if (D.full_skills.count("Deterrence") > 0 && A.type == 0) alpha *= 0.85;
-
     if (D.full_skills.count("Resolute") > 0 && (A.type == 2 || A.type == 3)) alpha * 0.8;
 
     // 考虑将领对系数的影响
@@ -141,11 +143,14 @@ double ranged_calc_single(const Unit& A, const Unit& D, int fleet){
 
     alpha *= ranged_alpha;       // 远程系数
 
-    if (A.full_skills.count("Archery 3") > 0 && D.type == 1) alpha *= 1.05;  // 弓箭3
-    if (A.full_skills.count("Archery 3") > 0 && D.type == 2) alpha *= 1.2;  // 弓箭3
+    if (A.full_skills.count("Rock Slinger 3") > 0 && D.type == 1) alpha *= 1.05; // 投石3
+    if (A.full_skills.count("Rock Slinger 3") > 0 && D.type == 2) alpha *= 1.16; // 投石3
 
     if (A.full_skills.count("Javelin 3") > 0 && D.type == 1) alpha *= 1.05; // 标枪3
     if (A.full_skills.count("Javelin 3") > 0 && D.type == 2) alpha *= 1.16; // 标枪3
+
+    if (A.full_skills.count("Archery 3") > 0 && D.type == 1) alpha *= 1.05;  // 弓箭3
+    if (A.full_skills.count("Archery 3") > 0 && D.type == 2) alpha *= 1.2;  // 弓箭3
 
     if (A.full_skills.count("Longbow 3") > 0 && D.type == 1) alpha *= 1.05; // 长弓3
     if (A.full_skills.count("Longbow 3") > 0 && D.type == 2) alpha *= 1.25; // 长弓3
@@ -177,16 +182,15 @@ double ranged_calc_single(const Unit& A, const Unit& D, int fleet){
     if (A.full_skills.count("Knight Bow 3") > 0 && D.type == 2) alpha *= 1.05; // 骑士弓3
     // ----------------
 
-    if (D.full_skills.count("Concentration") > 0) {alpha *= 0.85;}   // 集中
+    if (D.full_skills.count("Focused Defence") > 0) {alpha *= 0.85;}   // 集中防御
     if (D.full_skills.count("Top shield") > 0) {alpha *= 0.8;}       // 顶盾
     if (D.full_skills.count("Dragon Shield") > 0) {alpha *= 0.8;}    // 龙盾
     if (D.full_skills.count("Massive Shield") > 0) {alpha *= 0.5;}   // 巨盾
+    if (D.full_skills.count("Back row") > 0) {alpha *= 0.9;}   // 后排
     // 连击
     if (A.full_skills.count("Combo") > 0){
         if (judge_prob(20)) alpha *= 2.0; // 连击
     }
-    if (A.full_skills.count("Banner") > 0) alpha *= 1.05;
-    if (D.full_skills.count("Fearless") > 0) alpha *= 0.95;
 
     // 考虑将领对系数的影响
     if (A.pgeneral){
@@ -216,7 +220,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     // j <-> D
     
     int temp_record; // 辅助删除单位的变量
-    if (A.unit_num == 0 || D.unit_num == 0){
+    if (A.unit_num == 0 || D.unit_num == 0){ // for debug
         cout << "empty legion!" << endl;
         cout << "------------------------" << endl;
         A.show_troops();
@@ -231,7 +235,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     A.is_detour = false;
     
     //---------------------
-    // step0  行动力相关
+    // step0  行动力相关  + buff 相关
     //---------------------
 
     // 行动力减少，这样做是为了复现圣墓技能和冲骑技能的bug
@@ -258,6 +262,24 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
         D.buffs["Fire"] = 1;
     }
 
+    // buff 相关的伤害，适用于军团整体
+    double buff_A_atk_alpha = 1;
+    double buff_A_def_alpha = 1;
+    double buff_D_atk_alpha = 1;
+    double buff_D_def_alpha = 1;
+    // 不朽
+    {
+        double temp =(100 - (double)D.buffs["Immortality"] * 10.0) / 100;
+        buff_D_def_alpha *= temp;
+        temp =(100 - (double)A.buffs["Immortality"] * 10.0) / 100;
+        buff_A_def_alpha *= temp;
+    }
+    // 圣殿 和 条顿 
+    if (A.legion_skills.count("Banner") > 0) buff_A_atk_alpha *= 1.05;
+    if (D.legion_skills.count("Banner") > 0) buff_D_atk_alpha *= 1.05;
+    if (A.legion_skills.count("Fearless") > 0) buff_A_def_alpha *= 0.95;
+    if (D.legion_skills.count("Fearless") > 0) buff_D_def_alpha *= 0.95;
+
     //---------------------
     // step1  远程攻击
     //---------------------
@@ -268,7 +290,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     for (int i = 0; i < A.unit_num; ++i){
         if (!A.units.at(i).is_ranged) continue; // 非远程，跳过计算
         for (int j = 0; j < D.unit_num; ++j){
-            double dmg = ranged_calc_single(A.units.at(i), D.units.at(j), j) * mob_alpha;
+            double dmg = ranged_calc_single(A.units.at(i), D.units.at(j), j) * mob_alpha * buff_A_atk_alpha * buff_D_def_alpha;
             dmg_rec_ad[i][j] = dmg;
         }
     }
@@ -293,7 +315,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     for (int j = 0; j < D.unit_num; ++j){
         if (!D.units.at(j).is_ranged) continue;   // 非远程，跳过
         for (int i = 0; i < A.unit_num; ++i){
-            double dmg = ranged_calc_single(D.units.at(j), A.units.at(i), i);
+            double dmg = ranged_calc_single(D.units.at(j), A.units.at(i), i) * buff_D_atk_alpha * buff_A_def_alpha;
             dmg_rec_da[j][i] = dmg;
         }
     }
@@ -344,6 +366,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     }
 
     // step3-2 开始近战攻击流程
+
     // step3-2-1 先判断是否迂回
     vector<int> detour_flags(3, 0);
     for (int i = 0; i < A.unit_num; ++i){
@@ -376,27 +399,30 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
 
         // step2 考虑是否冲锋
         double charge_resist = 0;   // 冲锋抵抗
+        double charge_increase = 0; // 冲锋增加
         bool is_charge = false;
-        if (D.units.at(counter_id).full_skills.count("Halberd 2") > 0) charge_resist = 35;
-        if (D.units.at(counter_id).full_skills.count("Halberd 3") > 0) charge_resist = 40;
-        if (D.units.at(counter_id).full_skills.count("Long Spear 3") > 0) charge_resist = 35;
+        if (A.units.at(i).full_skills.count("Heavy-armored Charge") > 0) charge_increase = 20;   // 重甲冲锋
+        if (D.units.at(counter_id).full_skills.count("Halberd 3") > 0) charge_resist = 40;       // 长戟
+        if (D.units.at(counter_id).full_skills.count("Long Spear 3") > 0) charge_resist = 35;    // 长枪
         charge_resist = 1 - charge_resist / 100.0; 
-        if (judge_prob(A.units.at(i).charge * charge_resist)) is_charge = true;
+        if (judge_prob((A.units.at(i).charge + charge_increase) * charge_resist)) is_charge = true;
         if (is_charge) A.is_charge = true;   
 
         // step3 分类讨论冲锋和没冲锋
         double alpha = 1.0;
         if (detour_flags.at(i) == 1 && A.units.at(i).full_skills.count("Thousand miles raid") > 0) alpha *= 1.2;  // 千里奔袭
+        if (A.units.at(i).full_skills.count("Furious Charge") > 0 && D.unit_num > 1) alpha *= 1.05;  // 狂暴冲锋
         // step3-1 如果没冲锋
         if (!is_charge){
-            double dmg = melee_calc_single(A.units.at(i), D.units.at(counter_id)) * mob_alpha * alpha;
+            double dmg = melee_calc_single(A.units.at(i), D.units.at(counter_id)) * mob_alpha * alpha * buff_A_atk_alpha * buff_D_def_alpha;
             D.units.at(counter_id).injured(dmg);
         }
         // step3-2 如果冲锋了
         else{
             double dmg;
+            if (A.units.at(i).full_skills.count("Heavy-armored Charge") > 0) alpha *= 1.1;    // 重甲冲锋
             for (int j = 0; j < D.unit_num; ++j){
-                dmg = melee_calc_single(A.units.at(i), D.units.at(j)) * mob_alpha * alpha;
+                dmg = melee_calc_single(A.units.at(i), D.units.at(j)) * mob_alpha * alpha * buff_A_atk_alpha * buff_D_def_alpha;
                 D.units.at(j).injured(dmg);
             }
         }
@@ -422,7 +448,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
                     }
                 
                     // 预先计算反击伤害
-                    double dmg = melee_calc_single(D.units.at(j), A.units.at(i)) * alpha;  // 反击没有行动力相关系数
+                    double dmg = melee_calc_single(D.units.at(j), A.units.at(i)) * alpha * buff_D_atk_alpha * buff_A_def_alpha;  // 反击没有行动力相关系数
 
                     // 根据反击次数 判断是否反击
                     if (D.units.at(j).counter_num == 0){  // 必定发生反击
@@ -464,7 +490,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
                 }
             
                 // 预先计算反击伤害
-                double dmg = melee_calc_single(D.units.at(counter_id), A.units.at(i)) * alpha;  // 反击没有行动力相关系数
+                double dmg = melee_calc_single(D.units.at(counter_id), A.units.at(i)) * alpha * buff_D_atk_alpha * buff_A_def_alpha;  // 反击没有行动力相关系数
 
                 // 根据反击次数 判断是否反击
                 if (D.units.at(counter_id).counter_num == 0){  // 必定发生反击
@@ -519,6 +545,15 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     if (A.unit_num == 0){
         if (verbose){
             cout << A.legion_name << " is hit back and gone." << endl;
+        }
+    }
+    // 考虑不朽被动的触发
+    else{
+        if(A.is_charge){
+            A.buffs["Immortality"]++;
+            if (A.buffs["Immortality"] > immortality_max_num){
+                A.buffs["Immortality"] = immortality_max_num;
+            }
         }
     }
 

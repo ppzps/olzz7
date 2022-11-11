@@ -34,60 +34,76 @@ unit.json
 15级高级兵信息
 unit2.json
     --------- 近步 ---------
-    Hengdao Battalion  横刀营
-    Janissary          苏丹
-    Varangian Guard    瓦良吉
+    军团大队      Legion Brigade
+    双手剑士      Two Handed Swordsmen
+    皇家剑士      Royal Swordsmen
+    维京突袭者    Viking Raider
+    条顿武士      Teutonic Axemen
+    北欧重装斧兵   Nordic Heavy Axemen
+    苏丹近卫亲兵   Janissary          
+    瓦兰吉卫队     Varangian Guard    
+    横刀营        Hengdao Battalion  
     --------- 防步 ---------
-    Modao Battalion      陌刀营
-    Swiss Halberdiers    瑞士长戟
-    Lombardy Halberdiers 伦巴第
-    Legion Spearmen      军团矛兵
+    苏格兰长枪兵   Scottish Long Spearman
+    戍边矛兵      Garrison Spearmen
+    重装方阵枪兵   Heavy Phalanx Pikemen
+    军团矛兵       Legion Spearmen 
+    伦巴第戟兵     Lombardy Halberdiers
+    瑞士长戟兵     Swiss Halberdiers
+    陌刀营         Modao Battalion
     --------- 近骑 ---------
-    Knights Hospitaller    医院
-    Teutonic Knights       条顿
-    Knights of the Holy Sepulchre   圣墓
-    Black Armored Guards   近玄
-    War Elephants          战象
-    Kheshig                怯薛
+    骆驼骑兵       Camel Riders
+    战斧骑兵       War Axe Cavalry
+    战象           War Elephants  
+    怯薛          Kheshig 
+    骠骑兵        Hussar
+    医院骑士团     Knights Hospitaller    
+    条顿骑士团     Teutonic Knights       
+    圣墓骑士团     Knights of the Holy Sepulchre  
+    近卫玄甲兵     Black Armored Guards 
+    圣殿骑士团军士  Knights Templar Sergeant            
     --------- 冲骑 ---------
-    Knights Templar   圣殿
-    Jet Black Armor cavalry  玄冲
-    Noble Cavalry     贵族
-    Boyar Cavalry     波雅尔
+    重装长枪骑兵   Heavy Lance Cavalry
+    诺曼骑士       Norman Knights
+    铁甲重骑兵     Cataphracts
+    贵族骑兵       Noble Cavalry  
+    波雅尔骑兵     Boyar Cavalry  
+    不朽重骑       Klibanophoros
+    圣殿骑士团     Knights Templar
+    重装玄甲兵     Jet Black Armor cavalry   
     --------- 步弓 ---------
-    Conquistadors     征服者
-    Dragoon           龙骑兵
-    Zhuge Battalion   速弩营
-    Genoese Shielded Crossbowmen   热那亚巨盾弩兵
-    Ravenna Elite Crossbowmen      拉文纳
-    Woad Raiders      靛蓝
+    征服者 Conquistadors     
+    龙骑兵 Dragoon          
+    速弩营 Zhuge Battalion   
+    热那亚巨盾弩兵 Genoese Shielded Crossbowmen   
+    拉文纳 Ravenna Elite Crossbowmen      
+    靛蓝 Woad Raiders      
     --------- 弓骑---------
-    Mamluk Archers        马穆鲁克
-    Imperial how cavalry  帝弓
-    Elephant Archers      战象射手
-    Mongolian Raiders     蒙突
+    马穆鲁克 Mamluk Archers        
+    帝弓 Imperial how cavalry  
+    战象射手 Elephant Archers      
+    蒙突 Mongolian Raiders     
 
 兵种被动技能
 skill.json
     0/1 legion effect
-    
-    "Single-handed Sword 2": 单手剑2 对远程步兵伤害 +20%
-    "Halberd 2": 长戟2 对冲锋骑兵伤害 +25% 降低敌人35%冲锋率
-    "Knight Sword 2": 骑士剑2 对远程骑兵伤害 +20%
-    "Knight Spear 2": 对近步伤害 +25%
-    "Archery 2": 弓箭2 对防步，近骑伤害 +15%
 
     ------满级武器技能-------
-    "Hengdao 3": 0 横刀3 对远程步兵伤害 +25%
-    "Single-Handed Sword 3": 0 单手剑3 对远程步兵伤害 +25%
-    "Dual-Wielded Weapon 3": 0 双持武器3 对远程步兵伤害+30%
-    "Modao 3": 0  陌刀3 对冲锋骑兵造成伤害 +30% 反击伤害 +20%
-    "Halberd 3": 0 长戟3 对冲锋骑兵伤害 +30% 降低敌人40%冲锋率
-    "Long Spear 3": 0 长枪3 对冲锋骑兵伤害 +25% 降低敌人35%冲锋率
-    "Knight Sword 3": 0 骑士剑3 对远程骑兵伤害 +25%
-    "War Axe 3": 0 战斧3 对远程步兵伤害 +30%
-    "War Halberd 3" 0 战戟3 对近步伤害 +35%
-    "Knight Spear 3": 0 骑士枪3 对近步伤害 +30%
+    "Hengdao 3": 0 横刀3 对远程步兵伤害 +25%    (15, 20, 25)
+    "Single-Handed Sword 3": 0 单手剑3 对远程步兵伤害 +25%  (15, 20, 25)
+    "Dual-Wielded Weapon 3": 0 双持武器3 对远程步兵伤害+30%  (20, 25, 30)
+    "Double-Handed Sword 3": 0 双手剑3 对远程步兵伤害+30%  (20, 25, 30)
+    "War Axe 3": 0 战斧3 对远程步兵伤害 +30% (20, 25, 30)
+
+    "Long Spear 3": 0 长枪3 对冲锋骑兵伤害 +25% 降低敌人35%冲锋率  (15:25, 20:30, 25:35)
+    "Halberd 3": 0 长戟3 对冲锋骑兵伤害 +30% 降低敌人40%冲锋率   (20:30, 25:35, 30:40)
+    "Modao 3": 0  陌刀3 对冲锋骑兵造成伤害 +30% 反击伤害 +20%    (20:20, 25:20, 30:20) 反击伤害不变
+    
+    "Knight Sword 3": 0 骑士剑3 对远程骑兵伤害 +25%  (15, 20, 25)
+
+    "War Halberd 3" 0 战戟3 对近步伤害 +35%    (25, 30, 35)
+    "Knight Spear 3": 0 骑士枪3 对近步伤害 +30%   (20, 25, 30)
+    "Knight Halberd 3": 0  骑士斧枪 对进步伤害 +25% 对其他兵种伤害 +5% （15:5, 20:5, 25:5)    (描述不一致，带测试)
 
     "Heavy Spear 3": 0 骑士投枪3 防步伤害 +16% 近骑伤害 +5%  (8, 12, 16)  重甲突袭武器和骑士枪重合了。。。
     "Knight Bow 3": 0 骑士弓3 防步伤害 +20% 近骑伤害 +5%   (10, 15, 20)
@@ -96,39 +112,38 @@ skill.json
     "Javelin 3": 0 标枪3 防步伤害 +5% 近骑伤害 +16%   (8, 12, 16)
     "Archery 3": 0 弓箭3 防步伤害 +5% 近骑伤害 +20%   (10, 15, 20)
     "Longbow 3": 0 长弓3 防步伤害 +5% 近骑伤害 +25%   (15, 20, 25)
-    "Flame Longbow 3": 0 火长弓3 防步伤害 +5% 近骑伤害 +25% 100%概率着火 (15, 20, 25)
+    "Flame Longbow 3": 0 火长弓3 防步伤害 +5% 近骑伤害 +25% 100%概率着火 (15, 20, 25)  -> 着火(50, 75, 100)
 
-    "Throwing Axe 1": 0 飞斧1 防步伤害 5% 近骑伤害  6% 无视对方10防御
-    "Throwing Axe 2": 0 飞斧2 防步伤害 5% 近骑伤害 11% 无视对方15防御
-    "Throwing Axe 3": 0 飞斧3 防步伤害 5% 近骑伤害 16% 无视对方20防御  (6, 11, 16)
-    "Crossbow 1": 0 十字弩1 对防步伤害 5% 近骑伤害 12% 且无视对方15防御
-    "Crossbow 2": 0 十字弩2 对防步伤害 5% 近骑伤害 17% 且无视对方20防御
-    "Crossbow 3": 0 十字弩3 对防步伤害 5% 近骑伤害 22% 且无视对方25防御 (12, 17, 22)
-    "Arquebus 1": 0 火枪1 对防步伤害 5% 近骑伤害 15% 且无视对方20防御
-    "Arquebus 2": 0 火枪2 对防步伤害 5% 近骑伤害 20% 且无视对方25防御
-    "Arquebus 3": 0 火枪3 对防步伤害 5% 近骑伤害 25% 且无视对方30防御  (15, 20, 25)
+    "Throwing Axe 3": 0 飞斧3 防步伤害 5% 近骑伤害 16% 无视对方20防御  (6:5:10, 11:5:15, 16:5:20)
+    "Crossbow 3": 0 十字弩3 对防步伤害 5% 近骑伤害 22% 且无视对方25防御 (12:5:15, 17:5:20, 22:5:25)
+    "Arquebus 3": 0 火枪3 对防步伤害 5% 近骑伤害 25% 且无视对方30防御  (15:5:20, 20:5:25, 25:5:30)
     "Liannu 3": 0  连弩3 对防步伤害 +30%   英文还是Crossbow和十字弩重了。。。  (20, 25, 30)
 
     ------各种其他技能-------
-    "Concentration": 1 集中 受到远程伤害 -15%
+    "Focused Defense": 1 集中防御 受到远程伤害 -15%
     "Top shield": 0 顶盾 受到远程伤害 -20%
     "Dragon Shield": 1 龙盾 受到远程伤害 -20%
     "Square": 1 方阵 受到骑兵伤害 -15%
     "Deterrence": 1 威慑 受到近程步兵伤害 -15%
-    "Trample": 1 践踏 迂回成功时对方 -5士气
+    "Thump": 0 重击 对骑兵伤害增加 5%                   ？？？（中英文描述不一致，待测试）
     "Massive Shield": 0 巨盾 远程伤害降低50%
     "Bloodlust": 0 嗜血 血量低于50%时，反击伤害 +5%
+    "Furious Charge": 0 狂暴冲锋 攻击多编单位时，伤害增加 5%   (反击未测试，先不算增加)
     "Coordinated Counterattack": 1 协同反击
     "Frontline Demolisher": 0 冲锋毁灭者 被冲锋时，反击伤害增加20%
+    "Heavy-armored Charge": 0 重甲冲锋 冲锋概率提高 20%，且冲锋伤害提高 10%
+    "Immortality": 1 不朽 当前回合每冲锋一次，增加10%伤害减免，最多获得3次
     "Strong Counter": 0  强力反击 多段反击概率 +20%
     "Thousand miles raid": 0 千里奔袭 迂回概率 +10% 迂回伤害 +20%
     "Resolute": 0 意志坚定 受到骑兵伤害减少 10%
 
     ------各种其他技能-------
     "Banner": 1 战旗 相邻单位 伤害 +5%
+    "Back row": 0 后排 始终处于最后一排，并且受到远程伤害 -10%
     "Healing": 1 治疗 相邻单位每回合回复5%血量
     "Fearless": 1 无畏 相邻单位伤害降低5%
-    "Guardians": 1  守护者 圣墓技能 增伤于剩余移动力挂钩，0-2 增伤20%；3-5 增伤10%；6-8 增伤5%
+    "Guardians": 1  守护者 圣墓技能 增伤于剩余移动力挂钩，0-2 增伤20%；3-5 增伤10%；6-8 增伤5%  (关于反击是否生效待测试）
+    "Surprise Attack": 0 突袭 对城墙和城中部队增伤25%
     "Charge": 1 冲击 剩余攻击力大于5时，伤害 +10%，反击无效
     "Black Armor": 1 玄甲 每回合限1次，迂回后，军团行动力+2
     "Art of War": 1 兵法 每回合限1次，冲锋后，军团行动力+2
@@ -138,17 +153,25 @@ skill.json
     "Sniper": 1 狙击 永远造成最高伤  -> 实现龙骑兵的bug
     "Combo": 0 连击 20%概率 造成双倍伤害  -> 速弩营专属
     "Arrow Rain": 1 剑雨 进攻时无视对方60%防御  
-    "Precision": 1 精准 士气高昂时无视对方10%防御 
-    "Fire": 1 抛射 被攻击的部队当前回合行动力 +1    虽然不是军团技能，但是与军团技能类似
+    "Precision": 1 精准 士气高昂时无视对方10%闪避
+    "Golden Armor": 1  金甲 士气最高时，伤害提高 35% 
+    
 
     ------和伤害没有直接关系的技能-------
     "Chase": 1 追击 森林地形
     "Climb": 1 攀爬 山地地形
+    "Solid Formation": 1 阵法不乱 河流地形
     "Guard": 1 近卫 不受气候影响
+    "Trap Immunity": 1 陷阱免疫 
+    "Indestructible": 1 永不溃退 不会进入士气崩溃状态，且血量低于30%击溃科技无效
+    "Berserker": 1 狂战士 不会进入士气低落和士气崩溃
+    "Roar": 1 战吼 主动攻击额外减敌人 1 士气
     "Camel": 1 骆驼 冲锋成功后，对手士气下降10
     "Elephant": 1 巨象 冲锋成功后，对手士气下降15
-    "Well Trained": 1 训练有素 士气影响减半
+    "Trample": 1 践踏 迂回成功时对方 -5士气
+    "Well Trained": 1 训练有素 士气系数下降0.5
     "Flagbearer": 1 旗手 每回合士气 +1
+    "Fire": 1 抛射 被攻击的部队当前回合行动力 +1    虽然不是军团技能，但是与军团技能类似
     "Shoot": 0 射击 优先群攻
 
 
