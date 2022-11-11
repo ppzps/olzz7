@@ -78,9 +78,6 @@ double melee_calc_single(const Unit& A, const Unit& D){
     if (A.full_skills.count("Knight Spear 3") > 0 && D.type == 0) alpha *= 1.3;
     if (A.full_skills.count("War Halberd 3") > 0 && D.type == 0) alpha *= 1.35;
 
-    if (A.full_skills.count("Banner") > 0) alpha *= 1.05;
-    if (D.full_skills.count("Fearless") > 0) alpha *= 0.95;
-
     if (D.full_skills.count("Square") > 0 && (A.type == 2 || A.type == 3)) alpha *= 0.85;
     if (D.full_skills.count("Deterrence") > 0 && A.type == 0) alpha *= 0.85;
     if (D.full_skills.count("Resolute") > 0 && (A.type == 2 || A.type == 3)) alpha * 0.8;
