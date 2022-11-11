@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "unit.h"
 
 using namespace std;
@@ -361,4 +362,3 @@ void Legion::show_troops(){
     else cout << "none ";
     cout << " rem mobility: " << to_string(current_mobility) << endl;
 }
-

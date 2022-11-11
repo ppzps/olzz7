@@ -28,6 +28,7 @@ bool judge_prob(double thr, double lower, double upper){
 // 单纯计算攻击伤害 A->D 且A为近程
 // 不需要考虑冲锋，迂回，闪避，多段反击等因素, 但是考虑了将领
 // 现在兵种的第一技能还没有改，需要一些测试和数据 ----------------------- 
+
 double melee_calc_single(const Unit& A, const Unit& D){
     assert(!A.is_ranged);
     // 先计算基础伤害
@@ -66,6 +67,20 @@ double melee_calc_single(const Unit& A, const Unit& D){
 
     if (A.full_skills.count("Thump") > 0 && (D.type == 2 || D.type == 3)) alpha *= 1.05;
 
+    if (A.full_skills.count("Single-Handed Sword 3") > 0 && D.type == 4) alpha *= 1.25;
+    if (A.full_skills.count("Hengdao 3") > 0 && D.type == 4) alpha *= 1.25;
+    if (A.full_skills.count("Dual-Wielded Weapon 3") > 0 && D.type == 4) alpha *= 1.3;
+    if (A.full_skills.count("Modao 3") > 0 && D.type == 3) alpha *= 1.3;
+    if (A.full_skills.count("Halberd 3") > 0 && D.type == 3) alpha *= 1.3;
+    if (A.full_skills.count("Long Spear 3") > 0 && D.type == 3) alpha *= 1.25;
+    if (A.full_skills.count("Knight Sword 3") > 0 && D.type == 5) alpha *= 1.25;
+    if (A.full_skills.count("War Axe 3") > 0 && D.type == 4) alpha *= 1.3;
+    if (A.full_skills.count("Knight Spear 3") > 0 && D.type == 0) alpha *= 1.3;
+    if (A.full_skills.count("War Halberd 3") > 0 && D.type == 0) alpha *= 1.35;
+
+    if (A.full_skills.count("Banner") > 0) alpha *= 1.05;
+    if (D.full_skills.count("Fearless") > 0) alpha *= 0.95;
+
     if (D.full_skills.count("Square") > 0 && (A.type == 2 || A.type == 3)) alpha *= 0.85;
     if (D.full_skills.count("Deterrence") > 0 && A.type == 0) alpha *= 0.85;
     if (D.full_skills.count("Resolute") > 0 && (A.type == 2 || A.type == 3)) alpha * 0.8;
@@ -93,6 +108,9 @@ double melee_calc_single(const Unit& A, const Unit& D){
         alpha *= D.pgeneral->legion_dmg_red;
         if (D.type == 1) alpha *= D.pgeneral->defence_infantry_expert;
     }
+
+    // 考虑将领对系数的影响
+    ;
 
     return dmg * alpha;
 }
@@ -187,6 +205,7 @@ double ranged_calc_single(const Unit& A, const Unit& D, int fleet){
     if (D.full_skills.count("Dragon Shield") > 0) {alpha *= 0.8;}    // 龙盾
     if (D.full_skills.count("Massive Shield") > 0) {alpha *= 0.5;}   // 巨盾
     if (D.full_skills.count("Back row") > 0) {alpha *= 0.9;}   // 后排
+
     // 连击
     if (A.full_skills.count("Combo") > 0){
         if (judge_prob(20)) alpha *= 2.0; // 连击
@@ -208,7 +227,6 @@ double ranged_calc_single(const Unit& A, const Unit& D, int fleet){
     if (D.pgeneral){ 
         alpha *= D.pgeneral->legion_dmg_red;
     }
-
     return dmg * alpha;
 }
 
@@ -220,6 +238,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     // j <-> D
     
     int temp_record; // 辅助删除单位的变量
+
     if (A.unit_num == 0 || D.unit_num == 0){ // for debug
         cout << "empty legion!" << endl;
         cout << "------------------------" << endl;
@@ -249,6 +268,7 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
     
     // 行动力相关技能
     double mob_alpha = 1.0;
+
     if (A.legion_skills.count("Charge") > 0 && A.current_mobility > 5) mob_alpha *= 1.1;  // 冲击技能
     if (A.legion_skills.count("Guardians") > 0){    // 守护者技能
         if (A.current_mobility <= 2) mob_alpha *= 1.2;
@@ -556,6 +576,5 @@ void legion_fight(Legion& A, Legion& D, const std::map<std::string, bool> &skill
             }
         }
     }
-
     return; 
 }
